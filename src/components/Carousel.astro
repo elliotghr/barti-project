@@ -1,284 +1,332 @@
-<section class="carousel" aria-label="Gallery">
-  <ol class="carousel__viewport">
-    <li id="carousel__slide1" tabindex="0" class="carousel__slide">
-      <div class="carousel__snapper">
-        <a href="#carousel__slide4" class="carousel__prev">Go to last slide</a>
-        <a href="#carousel__slide2" class="carousel__next">Go to next slide</a>
+<!-- Autoplay won't start if the viewport height is not large enough to show the entire carousel due to Intersection Observer -->
+<div class="carousel-wrapper">
+  <div
+    class="carousel"
+    role="group"
+    aria-label="Ryoan-ji Temple’s Rock Garden"
+    aria-roledescription="carousel"
+  >
+    <div
+      aria-label="Choose slide to display"
+      role="group"
+      class="carousel__navdots home-page"
+    >
+      <button type="button" aria-label="1 of 4" aria-disabled="true"></button>
+      <button type="button" aria-label="2 of 4" aria-disabled="false"></button>
+      <button type="button" aria-label="3 of 4" aria-disabled="false"></button>
+      <button type="button" aria-label="4 of 4" aria-disabled="false"></button>
+    </div>
+    <div class="carousel__slides" aria-atomic="false" aria-live="off">
+      <div
+        class="carousel__slide"
+        role="group"
+        aria-label="1 of 4"
+        aria-roledescription="slide"
+      >
+        <img
+          src="https://translating-japanese-gardens.pages.dev/ryoanji/ryoanji-banner-spring-1882.jpg"
+          width="991"
+          height="702"
+        />
       </div>
-    </li>
-    <li id="carousel__slide2" tabindex="0" class="carousel__slide">
-      <div class="carousel__snapper"></div>
-      <a href="#carousel__slide1" class="carousel__prev">Go to previous slide</a
+      <div
+        class="carousel__slide"
+        role="group"
+        aria-label="2 of 4"
+        aria-roledescription="slide"
       >
-      <a href="#carousel__slide3" class="carousel__next">Go to next slide</a>
-    </li>
-    <li id="carousel__slide3" tabindex="0" class="carousel__slide">
-      <div class="carousel__snapper"></div>
-      <a href="#carousel__slide2" class="carousel__prev">Go to previous slide</a
+        <img
+          src="https://translating-japanese-gardens.pages.dev/ryoanji/ryoanji-banner-summer-1882.jpg"
+          width="991"
+          height="702"
+        />
+      </div>
+      <div
+        class="carousel__slide"
+        role="group"
+        aria-label="3 of 4"
+        aria-roledescription="slide"
       >
-      <a href="#carousel__slide4" class="carousel__next">Go to next slide</a>
-    </li>
-    <li id="carousel__slide4" tabindex="0" class="carousel__slide">
-      <div class="carousel__snapper"></div>
-      <a href="#carousel__slide3" class="carousel__prev">Go to previous slide</a
+        <img
+          src="https://translating-japanese-gardens.pages.dev/ryoanji/ryoanji-banner-autumn-1882.jpg"
+          width="991"
+          height="702"
+        />
+      </div>
+      <div
+        class="carousel__slide"
+        role="group"
+        aria-label="4 of 4"
+        aria-roledescription="slide"
       >
-      <a href="#carousel__slide1" class="carousel__next">Go to first slide</a>
-    </li>
-  </ol>
-  <aside class="carousel__navigation">
-    <ol class="carousel__navigation-list">
-      <li class="carousel__navigation-item">
-        <a href="#carousel__slide1" class="carousel__navigation-button"
-          >Go to slide 1</a
-        >
-      </li>
-      <li class="carousel__navigation-item">
-        <a href="#carousel__slide2" class="carousel__navigation-button"
-          >Go to slide 2</a
-        >
-      </li>
-      <li class="carousel__navigation-item">
-        <a href="#carousel__slide3" class="carousel__navigation-button"
-          >Go to slide 3</a
-        >
-      </li>
-      <li class="carousel__navigation-item">
-        <a href="#carousel__slide4" class="carousel__navigation-button"
-          >Go to slide 4</a
-        >
-      </li>
-    </ol>
-  </aside>
-</section>
-
+        <img
+          src="https://translating-japanese-gardens.pages.dev/ryoanji/ryoanji-banner-winter-1882.jpg"
+          width="991"
+          height="702"
+        />
+      </div>
+    </div>
+  </div>
+</div>
 <style>
-  @keyframes tonext {
-    75% {
-      left: 0;
-    }
-    95% {
-      left: 100%;
-    }
-    98% {
-      left: 100%;
-    }
-    99% {
-      left: 0;
-    }
-  }
-
-  @keyframes tostart {
-    75% {
-      left: 0;
-    }
-    95% {
-      left: -300%;
-    }
-    98% {
-      left: -300%;
-    }
-    99% {
-      left: 0;
-    }
-  }
-
-  @keyframes snap {
-    96% {
-      scroll-snap-align: center;
-    }
-    97% {
-      scroll-snap-align: none;
-    }
-    99% {
-      scroll-snap-align: none;
-    }
-    100% {
-      scroll-snap-align: center;
-    }
-  }
-
-  body {
-    max-width: 37.5rem;
-    margin: 0 auto;
-    padding: 0 1.25rem;
-    font-family: "Lato", sans-serif;
-  }
-
-  * {
-    box-sizing: border-box;
-    scrollbar-color: transparent transparent; /* thumb and track color */
-    scrollbar-width: 0px;
-  }
-
-  *::-webkit-scrollbar {
-    width: 0;
-  }
-
-  *::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  *::-webkit-scrollbar-thumb {
-    background: transparent;
-    border: none;
-  }
-
-  * {
-    -ms-overflow-style: none;
-  }
-
-  ol,
-  li {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
+  /* Show just one 991px wide slide at a time */
   .carousel {
-    position: relative;
-    padding-top: 75%;
-    filter: drop-shadow(0 0 10px #0003);
-    perspective: 100px;
+    width: 991px;
   }
-
-  .carousel__viewport {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+  .carousel__slides,
+  .carousel__slide {
+    width: 100%;
+  }
+  /* Make carousel swipeable */
+  .carousel__slides {
+    column-gap: 20px;
     display: flex;
-    overflow-x: scroll;
-    counter-reset: item;
-    scroll-behavior: smooth;
+    overflow: auto;
     scroll-snap-type: x mandatory;
   }
-
   .carousel__slide {
-    position: relative;
-    flex: 0 0 100%;
-    width: 100%;
-    background-color: #f99;
-    counter-increment: item;
-  }
-
-  .carousel__slide:nth-child(even) {
-    background-color: #99f;
-  }
-
-  .carousel__slide:before {
-    content: counter(item);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%, -40%, 70px);
-    color: #fff;
-    font-size: 2em;
-  }
-
-  .carousel__snapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    flex: 0 0 auto;
     scroll-snap-align: center;
   }
-
-  @media (hover: hover) {
-    .carousel__snapper {
-      animation-name: tonext, snap;
-      animation-timing-function: ease;
-      animation-duration: 4s;
-      animation-iteration-count: infinite;
-    }
-
-    .carousel__slide:last-child .carousel__snapper {
-      animation-name: tostart, snap;
-    }
+  .carousel__slides.smooth-scroll {
+    scroll-behavior: smooth;
+  }
+  /* Hide scrollbar */
+  .carousel__slides {
+    scrollbar-width: none; /* Firefox and latest Chromium */
+  }
+  .carousel__slides::-webkit-scrollbar {
+    display: none; /* Safari and legacy Chromium */
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .carousel__snapper {
-      animation-name: none;
-    }
+  /* Styling nav dots */
+  .carousel {
+    padding-bottom: 60px;
+    position: relative;
   }
-
-  .carousel:hover .carousel__snapper,
-  .carousel:focus-within .carousel__snapper {
-    animation-name: none;
-  }
-
-  .carousel__navigation {
-    position: absolute;
-    right: 0;
+  .carousel__navdots {
     bottom: 0;
-    left: 0;
-    text-align: center;
-  }
-
-  .carousel__navigation-list,
-  .carousel__navigation-item {
-    display: inline-block;
-  }
-
-  .carousel__navigation-button {
-    display: inline-block;
-    width: 1.5rem;
-    height: 1.5rem;
-    background-color: #333;
-    background-clip: content-box;
-    border: 0.25rem solid transparent;
-    border-radius: 50%;
-    font-size: 0;
-    transition: transform 0.1s;
-  }
-
-  .carousel::before,
-  .carousel::after,
-  .carousel__prev,
-  .carousel__next {
+    column-gap: 16px;
+    display: flex;
+    justify-content: center;
     position: absolute;
-    top: 0;
-    margin-top: 37.5%;
-    width: 4rem;
-    height: 4rem;
-    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+  }
+  .carousel__navdots button {
+    /* reset default style */
+    -moz-appearance: none;
+    -webkit-apperance: none;
+    appearance: none;
+    border: 0;
+    cursor: pointer;
+    /* style as a grey dot */
+    background-color: #9a9a9a;
     border-radius: 50%;
-    font-size: 0;
-    outline: 0;
+    height: 10px;
+    padding: 0;
+    width: 10px;
+  }
+  .carousel__navdots button.is-active {
+    background-color: #0060a8; /* blue */
+  }
+  .carousel__navdots button:focus-visible {
+    outline: 2px solid #0060a8; /* blue */
+    outline-offset: 2px;
   }
 
-  .carousel::before,
-  .carousel__prev {
-    left: -1rem;
+  /* Stylistic purpose */
+  .carousel-wrapper {
+    align-items: center;
+    display: flex;
   }
-
-  .carousel::after,
-  .carousel__next {
-    right: -1rem;
+  .carousel {
+    margin: 0 auto;
   }
-
-  .carousel::before,
-  .carousel::after {
-    content: "";
-    z-index: 1;
-    background-color: #333;
-    background-size: 1.5rem 1.5rem;
-    background-repeat: no-repeat;
-    background-position: center center;
-    color: #fff;
-    font-size: 2.5rem;
-    line-height: 4rem;
-    text-align: center;
-    pointer-events: none;
+  img {
+    height: auto;
+    max-width: 100%;
   }
-
-  .carousel::before {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='0,50 80,100 80,0' fill='%23fff'/%3E%3C/svg%3E");
+  body {
+    margin: 50px;
   }
-
-  .carousel::after {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='100,50 20,100 20,0' fill='%23fff'/%3E%3C/svg%3E");
+  p {
+    font-family: Georgia, serif;
+    font-size: 75px;
   }
 </style>
+<script>
+  // Components
+  const carouselContainer = document.querySelector(".carousel");
+  const slideWrapper = document.querySelector(".carousel__slides");
+  const slides = document.querySelectorAll(".carousel__slide");
+  const navdotWrapper = document.querySelector(".carousel__navdots");
+  const navdots = document.querySelectorAll(".carousel__navdots button");
+
+  // Parameters
+  const n_slides = slides.length;
+  const n_slidesCloned = 1;
+  let slideWidth = slides[0].offsetWidth;
+  let spaceBtwSlides = Number(
+    window
+      .getComputedStyle(slideWrapper)
+      .getPropertyValue("grid-column-gap")
+      .slice(0, -2)
+  ); // drop px at the end
+  function index_slideCurrent() {
+    return Math.round(
+      slideWrapper.scrollLeft / (slideWidth + spaceBtwSlides) - n_slidesCloned
+    );
+  }
+
+  // Nav dot click handler
+  function goto(index) {
+    slideWrapper.scrollTo(
+      (slideWidth + spaceBtwSlides) * (index + n_slidesCloned),
+      0
+    );
+  }
+  for (let i = 0; i < n_slides; i++) {
+    navdots[i].addEventListener("click", () => goto(i));
+  }
+
+  // Marking nav dots
+  function markNavdot(index) {
+    navdots[index].classList.add("is-active");
+    navdots[index].setAttribute("aria-disabled", "true");
+  }
+  function updateNavdot() {
+    const c = index_slideCurrent();
+    if (c < 0 || c >= n_slides) return; // in these cases, forward() and rewind() will be executed soon
+    markNavdot(c);
+  }
+  let scrollTimer;
+  slideWrapper.addEventListener("scroll", () => {
+    // reset
+    navdots.forEach((navdot) => {
+      navdot.classList.remove("is-active");
+      navdot.setAttribute("aria-disabled", "false");
+    });
+    // handle infinite scrolling
+    if (scrollTimer) clearTimeout(scrollTimer); // to cancel if scroll continues
+    scrollTimer = setTimeout(() => {
+      if (
+        slideWrapper.scrollLeft <
+        (slideWidth + spaceBtwSlides) * (n_slidesCloned - 1 / 2)
+      ) {
+        forward();
+      }
+      if (
+        slideWrapper.scrollLeft >
+        (slideWidth + spaceBtwSlides) * (n_slides - 1 + n_slidesCloned + 1 / 2)
+      ) {
+        rewind();
+      }
+    }, 100);
+    // mark the navdot
+    updateNavdot();
+  });
+
+  // Handle window resizing
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    // update parameters
+    slideWidth = slides[0].offsetWidth;
+    spaceBtwSlides = Number(
+      window
+        .getComputedStyle(slideWrapper)
+        .getPropertyValue("grid-column-gap")
+        .slice(0, -2)
+    ); // drop px at the end
+    // for autoplay
+    if (resizeTimer) clearTimeout(resizeTimer);
+    stop();
+    resizeTimer = setTimeout(() => {
+      play();
+    }, 400);
+  });
+
+  // Infinite scrolling
+  const firstSlideClone = slides[0].cloneNode(true);
+  firstSlideClone.setAttribute("aria-hidden", "true");
+  slideWrapper.append(firstSlideClone);
+
+  const lastSlideClone = slides[n_slides - 1].cloneNode(true);
+  lastSlideClone.setAttribute("aria-hidden", "true");
+  slideWrapper.prepend(lastSlideClone);
+
+  function rewind() {
+    slideWrapper.classList.remove("smooth-scroll");
+    setTimeout(() => {
+      // wait for smooth scroll to be disabled
+      slideWrapper.scrollTo((slideWidth + spaceBtwSlides) * n_slidesCloned, 0);
+      slideWrapper.classList.add("smooth-scroll");
+    }, 100);
+  }
+
+  function forward() {
+    slideWrapper.classList.remove("smooth-scroll");
+    setTimeout(() => {
+      // wait for smooth scroll to be disabled
+      slideWrapper.scrollTo(
+        (slideWidth + spaceBtwSlides) * (n_slides - 1 + n_slidesCloned),
+        0
+      );
+      slideWrapper.classList.add("smooth-scroll");
+    }, 100);
+  }
+
+  // Autoplay
+  function next() {
+    goto(index_slideCurrent() + 1);
+  }
+  const pause = 2500;
+  let itv;
+  function play() {
+    // early return if the user prefers reduced motion
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+    clearInterval(itv);
+    slideWrapper.setAttribute("aria-live", "off");
+    itv = setInterval(next, pause);
+  }
+  function stop() {
+    clearInterval(itv);
+    slideWrapper.setAttribute("aria-live", "polite");
+  }
+  const observer = new IntersectionObserver(callback, { threshold: 0.99 });
+  observer.observe(carouselContainer);
+  function callback(entries, observer) {
+    entries.forEach((entry) => {
+      console.log(`entry.intersectionRatio: ${entry.intersectionRatio}`);
+      if (entry.isIntersecting) {
+        console.log(`entry.isIntersecting is true.`);
+        play();
+      } else {
+        console.log(`entry.isIntersecting is false.`);
+        stop();
+      }
+    });
+  }
+  // for mouse users
+  carouselContainer.addEventListener("pointerenter", () => stop());
+  carouselContainer.addEventListener("pointerleave", () => play());
+  // for keyboard users
+  carouselContainer.addEventListener("focus", () => stop(), true);
+  carouselContainer.addEventListener(
+    "blur",
+    () => {
+      if (carouselContainer.matches(":hover")) return;
+      play();
+    },
+    true
+  );
+  // for touch device users
+  carouselContainer.addEventListener("touchstart", () => stop());
+
+  // Initialization
+  goto(0);
+  markNavdot(0);
+  slideWrapper.classList.add("smooth-scroll");
+</script>
