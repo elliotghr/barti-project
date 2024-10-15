@@ -1,0 +1,31 @@
+---
+import Navigator from "./Navigator.astro";
+import Hamburguer_menu from "./Hamburguer_menu.astro";
+import Header_logo from "./Header_logo.astro";
+---
+
+<header>
+  <div class="header-content">
+    <Header_logo />
+    <Hamburguer_menu />
+    <Navigator />
+  </div>
+</header>
+
+<style>
+  header {
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    background-color: #32210d;
+  }
+  .header-content {
+    width: 100%;
+    max-width: 920px;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+</style>
