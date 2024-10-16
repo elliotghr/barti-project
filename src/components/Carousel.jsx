@@ -32,22 +32,14 @@ const ProjectsSlider = ({ projects }) => {
     >
       {projects.map((project) => (
         <SwiperSlide key={project.title}>
-          <a
-            href={`/projects/${project.slug}`}
-            className="relative block group"
-          >
+          <div>
             <div className="w-full h-svh">
               <img
                 className="cursor-pointer object-cover rounded w-full h-full"
                 src={project.image}
               />
             </div>
-            <div className="absolute opacity-50 w-full bottom-0 pt-4 pb-8 left-0 justify-center items-center text-center text-sekano-dark bg-white">
-              <h2 className="text-xl lg:text-4xl pt-2">
-                {project.title} - {project.type}
-              </h2>
-            </div>
-          </a>
+          </div>
         </SwiperSlide>
       ))}
     </Swiper>
