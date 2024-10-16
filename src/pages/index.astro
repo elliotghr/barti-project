@@ -1,8 +1,30 @@
 ---
-import Carousel from "../components/Carousel.astro";
+import Carousel from "../components/Carousel.jsx";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Barti project">
-  <Carousel client:load></Carousel>
+  <Carousel
+    client:load
+    projects={[
+      {
+        title: "TextDecoderStream",
+        slug: "slug",
+        type: "type",
+        image: "../src/images/Unknown_person.jpg",
+      },
+      {
+        title: "TextDecoderStream",
+        slug: "slug",
+        type: "type",
+        image: "../src/images/Unknown_person.jpg",
+      },
+      {
+        title: "TextDecoderStream",
+        slug: "slug",
+        type: "type",
+        image: "../src/images/Unknown_person.jpg",
+      },
+    ]}
+  />
 </Layout>
