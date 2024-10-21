@@ -1,0 +1,97 @@
+---
+import { Image } from "astro:assets";
+import myImage from "../images/Unknown_person.jpg";
+---
+
+<section class="huellitas">
+  <div class="huellitas-container">
+    <div class="huellitas-content">
+      <header>
+        <div class="header-content">
+          <div></div>
+          <Image src={myImage} alt="" />
+          <Image src={myImage} alt="" />
+        </div>
+      </header>
+      <div class="body">
+        <div class="suscribe">
+          <Image src={myImage} alt="" />
+          <p>Suscribete a nuestro programa de Huellitas.</p>
+          <Image src={myImage} alt="" />
+        </div>
+        <div class="info">
+          <p>Las Huellitas son acumulables</p>
+          <p><b>¡Aprovecha al máximo tus compras!</b></p>
+        </div>
+      </div>
+      <footer>
+        <hr />
+      </footer>
+    </div>
+  </div>
+</section>
+
+<style>
+  .huellitas {
+    width: 100%;
+    height: auto;
+  }
+
+  .huellitas-container {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    background-color: #e9ccc5;
+  }
+
+  header {
+    width: inherit;
+    height: inherit;
+  }
+
+  header .header-content {
+    width: 100%;
+    height: inherit;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .header-content img,
+  .header-content div {
+    width: 3rem;
+  }
+
+  .suscribe {
+    padding: 0 2rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .suscribe img {
+    width: 3rem;
+    height: 100%;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .info p {
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  .info p:last-child {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  hr {
+    width: 90%;
+    padding-bottom: 1rem;
+  }
+</style>

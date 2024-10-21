@@ -1,30 +1,65 @@
 ---
-import Carousel from "../components/Carousel.jsx";
 import Layout from "../layouts/Layout.astro";
+
+import Carousel from "../components/Carousel.jsx";
+import About from "../components/About.astro";
+import Products from "../components/Products.astro";
+import Maps from "../components/Maps.astro";
+import Footprint from "../components/Footprint.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout title="Barti project">
-  <Carousel
-    client:load
-    projects={[
-      {
-        title: "TextDecoderStream",
-        slug: "slug",
-        type: "type",
-        image: "../src/images/Unknown_person.jpg",
-      },
-      {
-        title: "TextDecoderStream",
-        slug: "slug",
-        type: "type",
-        image: "../src/images/Unknown_person.jpg",
-      },
-      {
-        title: "TextDecoderStream",
-        slug: "slug",
-        type: "type",
-        image: "../src/images/Unknown_person.jpg",
-      },
-    ]}
-  />
+  <main>
+    <div class="page-container">
+      <Carousel
+        client:load
+        projects={[
+          {
+            title: "TextDecoderStream",
+            image: "../src/images/Unknown_person.jpg",
+          },
+          {
+            title: "TextDecoderStream",
+            image: "../src/images/Unknown_person.jpg",
+          },
+          {
+            title: "TextDecoderStream",
+            image: "../src/images/Unknown_person.jpg",
+          },
+        ]}
+      />
+      <About />
+      <Carousel
+        client:load
+        projects={[
+          {
+            title: "TextDecoderStream",
+            image: "../src/images/Unknown_person.jpg",
+          },
+          {
+            title: "TextDecoderStream",
+            image: "../src/images/Unknown_person.jpg",
+          },
+          {
+            title: "TextDecoderStream",
+            image: "../src/images/Unknown_person.jpg",
+          },
+        ]}
+      />
+      <Products />
+      <Maps />
+      <Footprint />
+    </div>
+  </main>
+  <Footer />
 </Layout>
+
+<style>
+  main {
+    padding-top: 4rem;
+  }
+  .page-container {
+    padding: 0 2rem;
+  }
+</style>

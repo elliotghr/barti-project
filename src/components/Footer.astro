@@ -1,0 +1,43 @@
+---
+import { Image } from "astro:assets";
+import myImage from "../images/Unknown_person.jpg";
+---
+
+<footer>
+  <div class="footer-container">
+    <div class="payment-methods">
+      <Image src={myImage} alt="" />
+      <Image src={myImage} alt="" />
+      <Image src={myImage} alt="" />
+      <Image src={myImage} alt="" />
+      <Image src={myImage} alt="" />
+    </div>
+    <div class="social-networks">
+      <Image src={myImage} alt="" />
+      <Image src={myImage} alt="" />
+      <Image src={myImage} alt="" />
+    </div>
+  </div>
+  <hr />
+  <p>Japi-Bart @ 2024</p>
+</footer>
+
+<style>
+  .footer-container {
+    padding: 0 2rem;
+  }
+  .payment-methods,
+  .social-networks {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  img {
+    width: 2rem;
+    height: 100%;
+  }
+  p {
+    margin: 0;
+    text-align: center;
+    font-size: 0.5rem;
+  }
+</style>
